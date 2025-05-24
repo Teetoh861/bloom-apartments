@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bloom Apartments | Wine-Themed Luxury Shortlet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bloom Apartments - Experience luxury, comfort, and convenience. Book your stay today!">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #800032;
+      --accent: #BE3144;
+      --accent2: #FBB13C;
+      --bg: #FDF6F0;
+      --section-bg: #FAE4DD;
+      --white: #fff;
+      --text: #250014;
+      --muted: #a0828e;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+    a { color: var(--primary); text-decoration: none; transition: color 0.2s;}
+    a:hover { color: var(--accent); }
+    header {
+      min-height: 72vh;
+      background: linear-gradient(120deg, var(--primary) 62%, var(--accent) 100%);
+      color: var(--white);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header .header-img {
+      width: 100%;
+      max-width: 700px;
+      margin: 3rem auto 1.5rem auto;
+      border-radius: 22px;
+      box-shadow: 0 6px 32px rgba(128,0,50,0.19);
+      border: 5px solid var(--accent2);
+      object-fit: cover;
+    }
+    .header-content {
+      position: relative;
+      z-index: 1;
+      padding: 1rem 1rem 2.5rem 1rem;
+      width: 100%;
+      max-width: 680px;
+    }
+    header h1 {
+      margin: 0 0 0.8rem 0;
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    }
+    header p {
+      font-size: 1.22rem;
+      font-weight: 500;
+      margin: 0 0 2.1rem 0;
+      max-width: 470px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.96;
+      letter-spacing: 0.3px;
+    }
+    .cta-btn {
+      background: var(--accent2);
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.17rem;
+      border: none;
+      border-radius: 30px;
+      padding: 1rem 2.6rem;
+      cursor: pointer;
+      box-shadow: 0 2px 11px rgba(128,0,50,0.10);
+      margin-top: 1.5rem;
+      transition: background 0.18s, color 0.18s;
+    }
+    .cta-btn:hover {
+      background: var(--white);
+      color: var(--accent);
+    }
+    nav {
+      background: var(--white);
+      box-shadow: 0 1px 8px rgba(128,0,50,0.06);
+      padding: 0.35rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 2.3rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 7px 18px;
+      border-radius: 22px;
+      transition: background 0.16s, color 0.16s;
+    }
+    nav ul li a.active, nav ul li a:hover {
+      background: var(--accent2);
+      color: var(--primary);
+    }
+    .container {
+      max-width: 1150px;
+      margin: 2rem auto 0 auto;
+      padding: 0 1rem;
+    }
+    .section {
+      background: var(--section-bg);
+      border-radius: 16px;
+      margin-bottom: 2.7rem;
+      box-shadow: 0 2px 14px 0 rgba(128,0,50,0.06);
+      padding: 2.5rem 1.5rem;
+    }
+    .section h2 {
+      color: var(--primary);
+      font-size: 1.65rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+      font-weight: 700;
+    }
+    /* About Us / Welcome */
+    .about-content {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: var(--text);
+      text-align: center;
+      line-height: 1.6;
+    }
+    /* Features/Rooms Section */
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.2rem;
+      justify-content: center;
+      margin-top: 1.8rem;
+    }
+    .feature-card {
+      background: var(--white);
+      border-radius: 13px;
+      box-shadow: 0 1px 10px rgba(128,0,50,0.09);
+      padding: 1.35rem 1.45rem;
+      min-width: 210px;
+      max-width: 285px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
+      font-size: 1.04rem;
+      color: var(--text);
+      border-left: 5px solid var(--accent);
+      font-weight: 600;
+    }
+    .feature-icon {
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    /* Gallery */
+    .gallery-section {
+      margin-bottom: 2.7rem;
+    }
+    .gallery-grid {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1.2rem;
+    }
+    .gallery-grid img {
+      width: 100%;
+      max-width: 330px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(128,0,50,0.11);
+      transition: transform 0.18s, box-shadow 0.19s;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border: 3px solid var(--accent2);
+      background: #eee;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.03) rotate(-1.5deg);
+      box-shadow: 0 8px 28px var(--accent);
+      border-color: var(--accent);
+    }
+    /* Room Types */
+    .room-types {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.2rem;
+      justify-content: center;
+      margin-top: 1.6rem;
+    }
+    .room-card {
+      background: var(--white);
+      border-radius: 13px;
+      box-shadow: 0 1px 10px rgba(128,0,50,0.08);
+      padding: 1.3rem 1.5rem;
+      min-width: 230px;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 1.04rem;
+      color: var(--text);
+      border-top: 5px solid var(--accent2);
+      font-weight: 500;
+    }
+    .room-title {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.13rem;
+      margin-bottom: 0.2rem;
+    }
+    /* Testimonials */
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.1rem;
+      justify-content: center;
+      margin-top: 1.7rem;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 13px;
+      box-shadow: 0 1px 10px rgba(128,0,50,0.08);
+      padding: 1.1rem 1.2rem;
+      max-width: 320px;
+      font-size: 1rem;
+      color: var(--text);
+      border-left: 5px solid var(--primary);
+      font-style: italic;
+      min-width: 210px;
+    }
+    .testimonial-author {
+      margin-top: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      font-style: normal;
+      font-size: 1rem;
+      text-align: right;
+      display: block;
+    }
+    /* Location/Map */
+    .location-map {
+      width: 100%;
+      max-width: 520px;
+      height: 300px;
+      border: none;
+      border-radius: 14px;
+      box-shadow: 0 2px 14px 0 rgba(128,0,50,0.09);
+      display: block;
+      margin: 0 auto;
+    }
+    /* Booking/Contact */
+    .booking-section {
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: 0 2px 16px rgba(128,0,50,0.13);
+      padding: 2.4rem 1.3rem;
+      max-width: 500px;
+      margin: 3.3rem auto 0 auto;
+    }
+    .booking-section h2 {
+      color: var(--primary);
+      margin-top: 0;
+      font-size: 1.45rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    .booking-form label {
+      display: block;
+      margin-bottom: 1.1rem;
+      font-weight: 500;
+    }
+    .booking-form input,
+    .booking-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.4rem;
+      border: 1.5px solid #d8b4c8;
+      border-radius: 7px;
+      font-size: 1rem;
+      background: #f5f0f5;
+      transition: border 0.2s;
+      font-family: inherit;
+      resize: vertical;
+    }
+    .booking-form input:focus,
+    .booking-form textarea:focus {
+      border: 1.5px solid var(--accent);
+      outline: none;
+    }
+    .booking-form button[type="submit"] {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+      color: #fff;
+      border: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 25px;
+      font-size: 1.09rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 0.7rem;
+      box-shadow: 0 2px 8px rgba(190,49,68,0.10);
+      transition: background 0.2s, color 0.15s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .booking-form button[type="submit"]:hover {
+      background: linear-gradient(90deg, var(--accent2) 0%, var(--accent) 100%);
+      color: var(--primary);
+    }
+    #bookingMsg {
+      margin-top: 1.1rem;
+      font-weight: bold;
+      color: var(--accent);
+      text-align: center;
+    }
+    /* Contact Details */
+    .contact-details {
+      margin-top: 2.1rem;
+      text-align: center;
+      font-size: 1.08rem;
+    }
+    .contact-details a {
+      display: inline-block;
+      margin-bottom: 0.7rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.3rem;
+      margin-top: 1.1rem;
+      justify-content: center;
+    }
+    .social-links a {
+      font-size: 1.5rem;
+      color: var(--white);
+      background: var(--primary);
+      transition: color 0.15s, background 0.15s;
+      padding: 8px 13px;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px 0 rgba(190,49,68,0.11);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .social-links a:hover {
+      background: var(--accent2);
+      color: var(--primary);
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+      color: var(--white);
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+      margin-top: 2.5rem;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+    @media (max-width: 900px) {
+      .container {
+        max-width: 99%;
+      }
+      .features-grid, .room-types, .testimonials { gap: 1.1rem; }
+      .gallery-grid { gap: 1rem; }
+    }
+    @media (max-width: 650px) {
+      nav ul { gap: 1.1rem; }
+      .gallery-grid, .features-grid, .room-types, .testimonials { flex-direction: column; }
+      .gallery-grid img, .location-map { max-width: 97vw; }
+      .section, .booking-section { padding: 1.2rem 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Bloom Apartments</h1>
+      <p>Experience first-class hospitality, stylish interiors, and the comfort of a home away from home. Book your luxury stay today!</p>
+      <a href="#booking" class="cta-btn">Book Now</a>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="#about" class="active">About</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#booking">Booking</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="container">
+    <!-- About Us / Welcome -->
+    <section class="section" id="about">
+      <h2>Welcome to Bloom Apartments</h2>
+      <div class="about-content">
+        At Bloom Apartments, we blend luxury, comfort, and convenience to offer you a truly memorable short-let experience in the heart of the city. From our elegant living spaces to our attentive service, every detail is designed for your relaxation and enjoyment.
+      </div>
+    </section>
+    <!-- Features -->
+    <section class="section" id="features">
+      <h2>Why Choose Bloom Apartments?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🛏️</div>
+          <div>Spacious, En-suite Bedrooms & Luxury Living Room</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏊‍♂️</div>
+          <div>Access to Swimming Pool & Fitness Facilities</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🍳</div>
+          <div>Fully Equipped Kitchen For Self-catering</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚗</div>
+          <div>Free Secure Parking & 24/7 Security</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📶</div>
+          <div>High-speed Wi-Fi & Smart TV Entertainment</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌳</div>
+          <div>Balcony & Relaxation Areas</div>
+        </div>
+      </div>
+    </section>
+    <!-- Room Types -->
+    <section class="section" id="rooms">
+      <h2>Our Room Types</h2>
+      <div class="room-types">
+        <div class="room-card">
+          <div class="room-title">Studio Apartment</div>
+          <div>Ideal for solo travelers or couples, our studio offers modern comfort and style in a compact space.</div>
+        </div>
+        <div class="room-card">
+          <div class="room-title">One Bedroom Apartment</div>
+          <div>Enjoy privacy, a separate bedroom, and a fully equipped kitchen for a truly relaxing stay.</div>
+        </div>
+        <div class="room-card">
+          <div class="room-title">Two Bedroom Apartment</div>
+          <div>Perfect for families or friends, with ample living space and all amenities for your convenience.</div>
+        </div>
+      </div>
+    </section>
+    <!-- Gallery -->
+    <section class="section gallery-section" id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <!-- No images -->
+      </div>
+    </section>
+    <!-- Testimonials / Reviews -->
+    <section class="section" id="testimonials">
+      <h2>What Our Guests Say</h2>
+      <div class="testimonials">
+        <div class="testimonial-card">
+          “A truly beautiful apartment, sparkling clean and so comfortable. Felt like home from the moment I arrived!”
+          <span class="testimonial-author">— Ada O.</span>
+        </div>
+        <div class="testimonial-card">
+          “Perfect location and thoughtful amenities. The staff were amazing and I’ll definitely be back!”
+          <span class="testimonial-author">— Femi L.</span>
+        </div>
+        <div class="testimonial-card">
+          “Loved the interior, the Wi-Fi was super fast, and the kitchen had everything I needed.”
+          <span class="testimonial-author">— Jane D.</span>
+        </div>
+      </div>
+    </section>
+    <!-- Location / Map -->
+    <section class="section" id="location">
+      <h2>Our Location</h2>
+      <div class="about-content" style="margin-bottom:1.5rem;">
+        Situated in a secure and serene part of the city, Bloom Apartments is easily accessible and close to top attractions, shopping, and business districts.
+      </div>
+      <!-- Embed Google Map based on your real address if desired -->
+      <iframe class="location-map" 
+        src="https://www.google.com/maps?q=lagos+nigeria&output=embed" 
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Bloom Apartments Location"></iframe>
+    </section>
+    <!-- Booking -->
+    <section class="booking-section" id="booking">
+      <h2>Book Your Stay</h2>
+      <form id="bookingForm" class="booking-form" action="https://formspree.io/f/mzblyqjb" method="POST">
+        <label>
+          Name:
+          <input type="text" name="guestName" required>
+        </label>
+        <label>
+          Email:
+          <input type="email" name="guestEmail" required>
+        </label>
+        <label>
+          Check-in:
+          <input type="date" name="checkin" required>
+        </label>
+        <label>
+          Check-out:
+          <input type="date" name="checkout" required>
+        </label>
+        <label>
+          Message:
+          <textarea name="message" rows="3" placeholder="Let us know your preferences..." required></textarea>
+        </label>
+        <button type="submit">Submit Booking</button>
+        <div id="bookingMsg"></div>
+      </form>
+    </section>
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <h2>Contact & Socials</h2>
+      <div class="contact-details">
+        <div><strong>Email:</strong> <a href="mailto:bloomapartments0@gmail.com">bloomapartments0@gmail.com</a></div>
+        <div><strong>Phone:</strong> <a href="tel:+2349039461700">+234 903 946 1700</a></div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/bloomapartments_?igsh=MW03NjJ5YWpvaXFjcg%3D%3D&utm_source=qr" target="_blank" aria-label="Instagram"><span aria-hidden="true">📸</span></a>
+          <a href="https://x.com/bloomapts?s=21" target="_blank" aria-label="Twitter"><span aria-hidden="true">🐦</span></a>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer>
+    &copy; 2025 Bloom Apartments. All rights reserved.
+  </footer>
+  <script>
+    // Nav active link highlight
+    document.addEventListener("DOMContentLoaded", function () {
+      const links = document.querySelectorAll("nav ul li a");
+      links.forEach(link => {
+        link.addEventListener("click", function () {
+          links.forEach(l => l.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      // Booking form AJAX (for in-page feedback)
+      const bookingForm = document.getElementById("bookingForm");
+      const bookingMsg = document.getElementById("bookingMsg");
+      bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        bookingMsg.textContent = "Sending...";
+        const formData = new FormData(bookingForm);
+        fetch(bookingForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if (response.ok) {
+            bookingMsg.textContent = "Thank you for booking with Bloom Apartments! We'll contact you soon.";
+            bookingForm.reset();
+          } else {
+            bookingMsg.textContent = "Oops! There was a problem submitting your booking. Please try again later.";
+          }
+        })
+        .catch(() => {
+          bookingMsg.textContent = "There was a network error. Please check your connection and try again.";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
